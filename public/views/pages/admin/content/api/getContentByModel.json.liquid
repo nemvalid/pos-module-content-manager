@@ -1,0 +1,8 @@
+---
+method: get
+---
+{% liquid
+  assign model = context.params.model
+  graphql result = 'modules/content-manager/getContentByModel', content_type: model
+%}
+{{ result.content.results | json }}

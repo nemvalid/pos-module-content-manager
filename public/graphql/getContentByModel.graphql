@@ -1,0 +1,24 @@
+query GetPropertiesForModel (
+  $limit: Int = 20
+  $page: Int = 1
+  $content_type: String!
+) {
+  content: records(
+    per_page: $limit
+    page: $page
+    filter: {
+      table: { value: $content_type }
+    }
+    sort: [
+      { created_at: { order: DESC } }
+    ]
+  ) {
+    total_entries
+    has_next_page
+
+    results {
+      id
+      properties
+    }
+  }
+}

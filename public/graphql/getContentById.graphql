@@ -1,0 +1,18 @@
+query GetContentById (
+  $limit: Int = 1
+  $page: Int = 1
+  $id: String!
+) {
+  content: records(
+    per_page: $limit
+    page: $page
+    filter: {
+      id: { value: $id }
+    }
+  ) {
+    results {
+      id
+      properties
+    }
+  }
+}

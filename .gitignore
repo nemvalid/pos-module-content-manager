@@ -1,0 +1,8 @@
+.marketplace-kit
+.pos
+.vscode
+.parcel-cache
+node_modules
+tmp/
+.DS_Store
+yarn-error.log

@@ -1,0 +1,8 @@
+---
+method: get
+---
+{% liquid
+  assign id = context.params.id
+  graphql result = 'modules/content-manager/getContentById', id: id
+%}
+{{ result.content.results.first | json }}

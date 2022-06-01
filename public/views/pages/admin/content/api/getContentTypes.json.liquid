@@ -1,0 +1,7 @@
+---
+method: get
+---
+{% liquid
+  graphql result = 'modules/content-manager/getEditableContentTypes'
+%}
+{{ result.admin_model_schemas.results | json }}

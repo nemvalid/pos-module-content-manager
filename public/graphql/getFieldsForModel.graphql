@@ -1,0 +1,18 @@
+query GetPropertiesForModel($content_type: String!) {
+  admin_model_schemas(
+    filter: {metadata: { attribute: { key: "editable", value_boolean: true } }, parameterized_name: { exact: $content_type }}
+  ) {
+    results {
+      id
+      name
+      parameterized_name
+      properties {
+        id
+        default_value
+        name
+        attribute_type
+        metadata
+      }
+    }
+  }
+}

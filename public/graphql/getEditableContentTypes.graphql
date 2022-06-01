@@ -1,0 +1,11 @@
+query GetEditableModels {
+  admin_model_schemas(
+    filter: {metadata: {attribute: {key: "editable", value_boolean: true}}}
+  ) {
+    results {
+      id
+      name
+      parameterized_name
+    }
+  }
+}
