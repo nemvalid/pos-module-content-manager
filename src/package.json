@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "parcel watch --host localhost",
-    "build": "parcel build"
+    "build": "parcel build ./index.tsx --no-source-maps"
   },
   "devDependencies": {
     "@types/react": "^17.0.38",

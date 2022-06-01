@@ -3,4 +3,7 @@ layout: modules/admin/application
 slug: admin/content
 ---
 <div id="root"></div>
+<script>
+  window.POS_INSTANCE_BASE_URL = {{ 'https://' | append: context.location.host | json }}
+</script>
 <script defer src="{{ 'modules/content-manager/index.js' | asset_url }}"></script>

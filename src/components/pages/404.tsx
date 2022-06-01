@@ -1,7 +1,6 @@
 import { Grid, Card, CardContent, Typography } from '@mui/material';
 
 export const NotFound = () => (
-
   <Grid
     container
     alignContent="center"
