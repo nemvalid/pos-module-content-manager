@@ -4,5 +4,12 @@ method: get
 {% liquid
   assign model = context.params.model
   graphql result = 'modules/content-manager/getFieldsForModel', content_type: model
+  assign result = result.admin_model_schemas.results.first
+  # Empty arrays can not passed as pointers.
+  unless result.properties.first
+    hash_assign result['properties'] = '[""]' | parse_json
+  endunless
+  assign params = '{}' | parse_json | hash_merge: model: model
+  function _ = 'modules/core/hook/alter', hook: 'content_fields', params_to_modify: result.properties, params: params
 %}
-{{ result.admin_model_schemas.results.first | json }}
+{{ result | json }}
